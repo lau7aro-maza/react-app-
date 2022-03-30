@@ -1,13 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Navbar from "./components/NavBar";
 
-function App() {
-
-let mystring = 'hola mundo';
-
+function App(){
   return (
-    <div className="App">
-      {mystring}
+    <div>
+      <Navbar />
     </div>
   );
 }
