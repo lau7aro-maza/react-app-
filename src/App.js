@@ -1,11 +1,15 @@
 import React from "react";
-import Navbar from "./components/NavBar";
+import Navbar from "./components/Navbar";
+/* import CartWidget from "./components/CartWidget"; */
+
+
 
 function App(){
   return (
-    <div>
-      <Navbar />
-    </div>
+    <>
+    <Navbar/>
+{/*     <CartWidget/> */}
+    </>
   );
 }
 
