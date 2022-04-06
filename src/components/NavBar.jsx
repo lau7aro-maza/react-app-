@@ -7,13 +7,13 @@ export default function Navbar() {
 
         <NavBar bg="light" expand="lg">
   <Container>
-    <NavBar.Brand href="#home">React-Bootstrap</NavBar.Brand>
+    <NavBar.Brand href="#home">My-App</NavBar.Brand>
     <NavBar.Toggle aria-controls="basic-NavBar-nav" />
     <NavBar.Collapse id="basic-NavBar-nav">
       <Nav className="me-auto">
-        <Nav.Link href="#home">Home</Nav.Link>
-        <Nav.Link href="#link">Link</Nav.Link>
-        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+        <Nav.Link href="#home">Inicio</Nav.Link>
+        <Nav.Link href="#link">Nosotros</Nav.Link>
+        <NavDropdown title="Productos" id="basic-nav-dropdown">
           <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
           <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
           <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
