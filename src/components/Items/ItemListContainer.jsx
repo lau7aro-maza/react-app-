@@ -1,5 +1,6 @@
 import React,{ useEffect, useState } from "react"; 
 import { customFetch } from "../utils/customFetch";
+import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
 
 function ItemListContainer () {
@@ -13,6 +14,8 @@ function ItemListContainer () {
     
     return (
     <>
+    <ItemCount/>
+    <br /><br /><br />
     <ItemList prods={producto} />
     </>
     

@@ -25,8 +25,8 @@ function ItemCount({stock}) {
             <Button onClick={subs} variant="warning">-</Button>
             <p>{count}</p>
             <Button onClick={adding} variant="warning">+</Button>
-            </div>
             <Button onClick={onAdd} variant="dark">Comprar</Button>
+            </div>
         </div>
     )
 }
