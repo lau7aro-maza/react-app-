@@ -14,7 +14,7 @@ function ItemListContainer () {
     
     return (
     <>
-    <ItemCount/>
+    <ItemCount stock={10}/>
     <br /><br /><br />
     <ItemList prods={producto} />
     </>
