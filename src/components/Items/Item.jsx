@@ -1,14 +1,19 @@
+import React from "react"; 
+import styles from './Item.modules.css'
 
 const Item = ({ prod }) => {
     return (
-        <div className="Item">
-          <div className="Item-ID">ID: {prod.id}</div>
-          <div className="ITem-info">
-            <div className="Item-title">Name: {prod.name}</div>
-            <div className="Item-stock">STOCK: {prod.stock}</div>
-            <div className="Item-description">Description:{prod.description}</div>
-          </div>
-        </div>
+      <div className={styles.card}>
+      <img src={prod.img} alt={prod.name} />
+            <div className={styles.contenidoCard}>
+                <h1>Name: {prod.name}</h1>
+                <p>Descripcion: {prod.description}</p>
+                <p>Stock: {prod.stock}</p>
+                <p>ID: {prod.id}</p>
+                <p>Price: {prod.price}</p>
+            </div>
+      </div>
+
     );
 };
 

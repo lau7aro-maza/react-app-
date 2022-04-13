@@ -7,10 +7,17 @@ function ItemListContainer () {
     const [producto, setProducto] = useState ([]);
     
     useEffect(() => {
-        customFetch.then((resultado) => setProducto(resultado)).catch((error) => console.log(error)
-        );
+        customFetch().then((res) => {
+            setProducto(res);
+        });
 
     }, []);
+
+/*     useEffect(() => {
+        Reloj().then((res) => {
+            setProducto(res);
+        });
+    }, []); */
     
     return (
     <>
