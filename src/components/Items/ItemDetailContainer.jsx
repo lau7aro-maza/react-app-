@@ -1,19 +1,34 @@
 import React, { useEffect, useState } from "react";
-import { Reloj } from "../utils/customFetch";
 import ItemDetail from "./ItemDetail";
+import { useParams } from "react-router-dom";
+
 
 const ItemDetailContainer = () => {
     const [producto, setProducto] = useState({});
+    const {id} = useParams()
 
     useEffect(() => {
-        Reloj().then((res) => {
+        const traerProducto = new Promise((resolve, reject) => {
+        const productoElegido = producto.find(
+                (prod) => prod.id === Number(id)
+                )
+                setTimeout(() => {
+                    resolve(productoElegido);
+                }, 1000);
+            })
+        
+
+
+        traerProducto.then((res) => {
             setProducto(res);
+        })
+        .catch((error) => {
+            console.log(error);
         });
-    }, []);
 
-    console.log(producto);
+    }, [id]);
 
-
+    
 
     return (
         <>
