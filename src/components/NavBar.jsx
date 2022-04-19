@@ -12,14 +12,13 @@ export default function Navbar() {
     <NavBar.Toggle aria-controls="basic-NavBar-nav" />
     <NavBar.Collapse id="basic-NavBar-nav">
       <Nav className="me-auto">
-        <Nav.Link href="#home">Inicio</Nav.Link>
         <Nav.Link href="#link">Nosotros</Nav.Link>
         <NavDropdown title="Productos" id="basic-nav-dropdown">
-          <Link to='/category/indumentaria'>Dress</Link>
+          <Link to='/category/indumentaria'>Indumentaria</Link>
           <br />
           <Link to='/category/zapatos'>Zapatos</Link>
           <br />
-          <Link to='/category/accesories'>Accesories</Link>
+          <Link to='/category/accesories'>Accesorios</Link>
         </NavDropdown>
         <CartWidget/>
       </Nav>

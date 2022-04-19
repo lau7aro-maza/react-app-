@@ -1,25 +1,18 @@
 import React, { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
+import { traerProduct } from "../utils/products";
 
 
 const ItemDetailContainer = () => {
     const [producto, setProducto] = useState({});
     const {id} = useParams()
 
+    console.log (id);
+
     useEffect(() => {
-        const traerProducto = new Promise((resolve, reject) => {
-        const productoElegido = producto.find(
-                (prod) => prod.id === Number(id)
-                )
-                setTimeout(() => {
-                    resolve(productoElegido);
-                }, 1000);
-            })
-        
-
-
-        traerProducto.then((res) => {
+        traerProduct(id)
+        .then((res) => {
             setProducto(res);
         })
         .catch((error) => {
@@ -32,7 +25,7 @@ const ItemDetailContainer = () => {
 
     return (
         <>
-        <ItemDetail producto={producto}/>
+        <ItemDetail {...producto}/>
         </>
     );
 };
