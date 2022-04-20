@@ -3,39 +3,32 @@ import React,{ useState } from "react";
 import s from './ItemCount.module.css';
 
 
-export default function ItemCount({stock}) {
-
-    const [count, setCount] = useState(0);
+const ItemCount =({stock, initial, addCart}) => {
+    const [number, setNumber] = useState(initial);
     
-    function onAdd () {
-        alert("Agregaste " + count + " items a tu carrito")
-    }
+    const add = () => {
+        number < stock && setNumber(number + 1);
+    };
 
-    function adding () {
-        if(count < stock) {
-        setCount(count + 1);}
-        console.log(count);
-    }
-    function subs () {
-        if(count > 0) {
-        setCount(count - 1);}
-    }
-    function reset () {
-        if (count !== 0) {
-            setCount(0);
-        }
-    }
+    const substract = () => {
+        number > initial && setNumber(number - 1);
+    };
+    const handleClick = () => {
+        addCart(number);
+    };
 
     return (
         <div>
             <div className={s.botonContador}>
-            <Button onClick={subs} variant="warning">-</Button>
-            <p>{count}</p>
-            <Button onClick={adding} variant="warning">+</Button>
-            <Button onClick={() => onAdd(count)} variant="dark">Comprar</Button>
-            <Button onClick={reset} variant="dark">Resetear</Button>
+            <Button disabled={number === initial} onClick={substract} variant="warning">-</Button>           
+            <p>{number}</p>
+            <Button disabled={number === stock} onClick={add} variant="warning">+</Button>
+            </div>
+            <div>
+            <Button onClick={handleClick} variant="dark">Añadir al carrito</Button>
             </div>
         </div>
     )
 }
+export default ItemCount;
 
