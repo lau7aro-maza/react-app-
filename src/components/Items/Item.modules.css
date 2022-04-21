@@ -1,19 +1,14 @@
 /*Cards*/
-.container-card{
+
+
+.containerCard{
 	width: 100%;
 	display: flex;
-	max-width: 1100px;
+	justify-content: space-around;
+	flex-wrap: wrap;
 	margin: auto;
 }
-.title-cards{
-	width: 100%;
-	max-width: 1080px;
-	margin: auto;
-	padding: 20px;
-	margin-top: 20px;
-	text-align: center;
-	color: #7a7a7a;
-}
+
 .card{
 	width: 100%;
 	margin: 20px;
