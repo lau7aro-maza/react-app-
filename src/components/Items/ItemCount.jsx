@@ -1,9 +1,9 @@
 import Button from "react-bootstrap/Button";
-import React,{ useState } from "react";
-import s from './ItemCount.module.css';
+import React,{ useEffect, useState } from "react";
+import './ItemCount.module.css';
 
 
-const ItemCount =({stock, initial, addCart}) => {
+const ItemCount =({stock, initial, setQuantity}) => {
     const [number, setNumber] = useState(initial);
     
     const add = () => {
@@ -13,19 +13,16 @@ const ItemCount =({stock, initial, addCart}) => {
     const substract = () => {
         number > initial && setNumber(number - 1);
     };
-    const handleClick = () => {
-        addCart(number);
-    };
+    useEffect(() => {
+        setQuantity(number);
+    }, [number, setQuantity]);
 
     return (
         <div>
-            <div className={s.botonContador}>
+            <div className="botonContador">
             <Button disabled={number === initial} onClick={substract} variant="warning">-</Button>           
             <p>{number}</p>
             <Button disabled={number === stock} onClick={add} variant="warning">+</Button>
-            </div>
-            <div>
-            <Button onClick={handleClick} variant="dark">Añadir al carrito</Button>
             </div>
         </div>
     )

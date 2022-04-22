@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Container, Nav, Navbar as NavBar, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import CartWidget from './CartWidget';
+
 
 export default function Navbar() {
     return (
@@ -20,7 +20,6 @@ export default function Navbar() {
           <br />
           <Link to='/category/accesories'>Accesorios</Link>
         </NavDropdown>
-        <CartWidget/>
       </Nav>
     </NavBar.Collapse>
   </Container>
