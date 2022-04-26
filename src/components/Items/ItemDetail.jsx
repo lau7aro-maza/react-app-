@@ -22,7 +22,6 @@ const ItemDetail = ({img, name, price, stock}) => {
 
         setCart((value) => [...value]);
     };
-    console.log(number);
 
     return (
     <div className="containerCard">
@@ -33,9 +32,11 @@ const ItemDetail = ({img, name, price, stock}) => {
               <h3>{name}</h3>
               <p>Detalle: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non laborum officiis ducimus repellat inventore.</p>
             </div>
-            <ItemCount stock={stock} initial={0} setQuantity={setQuantity} />
+            <h4>
+            <ItemCount stock={stock} initial={0} setQuantity={setQuantity}/>
+            </h4>
             <CartWidget quantity={quantity} />
-            <Link style={{ textDecoration: 'none'}} onClick={addCart} to={'/cart'}><h5>Ir al Carrito</h5></Link>
+            
         </div>
     </div>
         
