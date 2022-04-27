@@ -19,12 +19,14 @@ const ItemCount =({stock, initial, onAdd}) => {
     }
     return (
         <div>
-            <div className="botonContador">
-                <h1>Contador</h1>
+            <div className="detail" style={{margin: "20px"}}>
+                <h3>Contador</h3>
+                <div className="contenidoCard">
                 <p>Mi contador actual : {number}</p>
                 <Button onClick={substract} variant="warning">Disminuir</Button>           
                 <Button onClick={add} variant="warning">Aumentar</Button>
                 <Button onClick={hadleConfirmar} variant="dark">Confirmar</Button>
+                </div>
             </div>
         </div>
     )

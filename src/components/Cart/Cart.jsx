@@ -46,10 +46,10 @@ const Card = () => {
             <tbody>
                 {carrito.map(producto => (
                     <tr key={producto.id}>
-                        <td>{producto.nombre}</td>
-                        <td>${producto.precio}</td>
+                        <td>{producto.name}</td>
+                        <td>${producto.price}</td>
                         <td>{producto.cantidad}</td>
-                        <td>{producto.precio * producto.cantidad}</td>
+                        <td>{producto.price * producto.cantidad}</td>
                         <td>
                             <button
                                 className="button"

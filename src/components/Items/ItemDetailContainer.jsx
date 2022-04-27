@@ -46,15 +46,17 @@ const ItemDetailContainer = () => {
       } else {
     return (
         <div className="detail" >
-        <div className="card" style={{ width: "15rem", align: "center"}}>
+        <div className="card" style={{ width: "20rem", align: "center"}}>
             <img src={item.img} alt="" />
             <div className="contenidoCard">
               <h1> ${item.price}</h1>
-              <h3>{item.name}</h3>
-              <p>{item.category}
-                  Detalle: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non laborum officiis ducimus repellat inventore.</p>
+              <h2>{item.name}</h2>
+              <br />
+              <h5>Detalle: 
+                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non laborum officiis ducimus repellat inventore.</p></h5>
+              <h6>{item.category}</h6>
             </div>
-            <ItemCount stock={5} initial={1} onAdd={onAdd}/>
+            <ItemCount style={{ width: "15rem", align: "center"}} stock={5} initial={1} onAdd={onAdd}/>
             <p>{seleccionado ? "Ya se selecciono algo!" : "No se eligion ninguna cantidad"}</p>
             {seleccionado ? <Link className="button" onClick={handleClick} to="/cart">Ir al Carrito</Link> : null }
             

@@ -11,7 +11,7 @@ const MiProvider = ({children}) => {
 
     const agregarProducto = (item,cantidad) => {
         setCarrito([...carrito,{...item,cantidad}])
-        setTotal(total + item.precio * cantidad)
+        setTotal(total + item.price * cantidad)
         setCantidadActual(cantidadActual + cantidad)
     }
 
@@ -25,10 +25,10 @@ const MiProvider = ({children}) => {
     const AumentarProducto = id => {
         setCarrito(carrito.map(item => {
             if(item.id === id){
-                alert("Se aumento el producto ")
+                console.log("Se aumento el producto ")
                 item.cantidad++
                 setCantidadActual(cantidadActual + 1)
-                setTotal(total + item.precio)
+                setTotal(total + item.price)
             }
             return item
         }))
@@ -39,7 +39,7 @@ const MiProvider = ({children}) => {
             if(item.id === id && item.cantidad > 1){
                 item.cantidad--
                 setCantidadActual(cantidadActual - 1)
-                setTotal(total - item.precio)
+                setTotal(total - item.price)
             }else{
                 alert("No se puede disminuir mas, por favor elimine el producto")
             }
