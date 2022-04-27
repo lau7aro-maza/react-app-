@@ -3,9 +3,11 @@ import Item from "./Item";
 
 export default function ItemList ({ productos }) {
     return (
-        <div>
+        <div className="containerCard">
             {productos.map((producto) => (
-                <Item key={producto.id} producto={producto} />
+                <div>
+                    <Item key={producto.id} producto={producto} />
+                </div>
             ))}
         </div>
     )

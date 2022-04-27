@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemListContainer from "./components/Items/ItemListContainer"
 import ItemDetailContainer from "./components/Items/ItemDetailContainer";
 import Cart from "./components/Cart/Cart"
-import { CartProvider } from "./components/Cart/CartContext";
+import MiProvider from "./components/Cart/MiProvider";
 
 
 
@@ -14,7 +14,7 @@ export default function App(){
 
   return (
     <>
-    <CartProvider>
+    <MiProvider>
       <Router>
         <NavBar/>
         <Routes>
@@ -24,7 +24,7 @@ export default function App(){
         <Route path="/cart" element={<Cart />} />
       </Routes>
     </Router>
-    </CartProvider>
+    </MiProvider>
     </>
   );
 }

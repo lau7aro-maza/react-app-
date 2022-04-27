@@ -1,10 +1,9 @@
 import Button from "react-bootstrap/Button";
-import React,{ useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React,{ useState } from "react";
 import './ItemCount.module.css';
 
 
-const ItemCount =({stock, initial, setQuantity}) => {
+const ItemCount =({stock, initial, onAdd}) => {
     const [number, setNumber] = useState(initial);
     
     const add = () => {
@@ -14,22 +13,20 @@ const ItemCount =({stock, initial, setQuantity}) => {
     const substract = () => {
         number > initial && setNumber(number - 1);
     };
-    useEffect(() => {
-        setQuantity(number);
-    }, [number, setQuantity]);
-
+    const hadleConfirmar = () => {
+        console.log()
+        onAdd(number)
+    }
     return (
         <div>
             <div className="botonContador">
-            <Button disabled={number === initial} onClick={substract} variant="warning">-</Button>           
-            <p>{number}</p>
-            <Button disabled={number === stock} onClick={add} variant="warning">+</Button>
-            <div>
-            <Link style={{ textDecoration: 'none'}} setQuantity={setQuantity} to={'/cart'}><h5>Ir al Carrito</h5></Link>
-            </div>
+                <h1>Contador</h1>
+                <p>Mi contador actual : {number}</p>
+                <Button onClick={substract} variant="warning">Disminuir</Button>           
+                <Button onClick={add} variant="warning">Aumentar</Button>
+                <Button onClick={hadleConfirmar} variant="dark">Confirmar</Button>
             </div>
         </div>
     )
 }
 export default ItemCount;
-
