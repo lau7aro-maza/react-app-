@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { traerProduct } from "../utils/products";
 import ItemCount from "./ItemCount";
 import Loading from "../utils/Loading"
 import { contexto } from "../Cart/MiProvider";
+import {  collection , where , query , getDocs, getFirestore} from "firebase/firestore"
 
 import "./Item.modules.css"
 
@@ -17,13 +17,18 @@ const ItemDetailContainer = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        traerProduct(id)
-        .then((res) => {
-            setItem(res);
-        })
-        .catch((error) => {
-            console.log(error);
-        })
+      const db = getFirestore();
+      const productosRef = collection(db, "productos")
+      const miFiltro = query(productosRef,where("id","==",Number(id)))
+      const documentos = getDocs(miFiltro)
+
+
+        documentos
+        .then(res => 
+            setItem(res.docs.map(doc=>doc.data())[0]
+        ))
+        .catch(error => 
+            console.log(error))
         .finally(() => setLoading(false))
 
     }, [id]);
