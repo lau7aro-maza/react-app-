@@ -3,7 +3,8 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import ItemCount from "./ItemCount";
 import Loading from "../utils/Loading"
 import { contexto } from "../Cart/MiProvider";
-import {  collection , where , query , getDocs, getFirestore} from "firebase/firestore"
+import { db } from "../utils/Firebase";
+import {  collection , where , query , getDocs } from "firebase/firestore"
 
 import "./Item.modules.css"
 
@@ -13,20 +14,19 @@ const ItemDetailContainer = () => {
     const [loading, setLoading] = useState(true)
     const [seleccionado, setSeleccionado] = useState(false);
     const {agregarProducto} = useContext(contexto)
-    const { id } = useParams()
+    const {id } = useParams()
     const navigate = useNavigate()
 
     useEffect(() => {
-      const db = getFirestore();
-      const productosRef = collection(db, "productos")
-      const miFiltro = query(productosRef,where("id","==",Number(id)))
+      const productosRef = collection(db, "items")
+      const miFiltro = query(productosRef,where("category","==",(id)))
       const documentos = getDocs(miFiltro)
 
 
         documentos
-        .then(res => 
-            setItem(res.docs.map(doc=>doc.data())[0]
-        ))
+        .then(res => {
+          setItem(res.docs.map((item) => ({ id: item.id, ...item.data() })))
+        })
         .catch(error => 
             console.log(error))
         .finally(() => setLoading(false))
