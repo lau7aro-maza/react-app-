@@ -1,5 +1,7 @@
 import { useContext } from "react";
 import { contexto } from "./MiProvider";
+import { db } from "../utils/Firebase";
+import { addDoc , collection , serverTimestamp } from "firebase/firestore"
 import { Link } from "react-router-dom"
 
 const Card = () => {
@@ -18,10 +20,12 @@ const Card = () => {
         localidad: "Rosario"
       },
       items : carrito,
+      date : serverTimestamp(),
       total : total
     }
 
-    const pedido = (orden);
+    const ordenesCollection = collection(db, "ordenes")
+    const pedido = addDoc(ordenesCollection,orden)
 
     pedido
     .then(res=>{

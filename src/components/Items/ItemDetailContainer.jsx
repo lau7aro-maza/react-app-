@@ -4,8 +4,7 @@ import ItemCount from "./ItemCount";
 import Loading from "../utils/Loading"
 import { contexto } from "../Cart/MiProvider";
 import { db } from "../utils/Firebase";
-import {  collection , where , query , getDocs } from "firebase/firestore"
-
+import { collection , where , query , getDocs } from "firebase/firestore"
 import "./Item.modules.css"
 
 
@@ -19,7 +18,7 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
       const productosRef = collection(db, "items")
-      const miFiltro = query(productosRef,where("category","==",(id)))
+      const miFiltro = query(productosRef,where("category","==",Number(id)))
       const documentos = getDocs(miFiltro)
 
 
@@ -52,10 +51,13 @@ const ItemDetailContainer = () => {
     return (
         <div className="detail" >
         <div className="card" style={{ width: "20rem", align: "center"}}>
-            <img src={item.img} alt="" />
+          <h2>
+            {item.name}
+           <img src={item.img} alt="" />
+          </h2>
+          
             <div className="contenidoCard">
               <h1> ${item.price}</h1>
-              <h2>{item.name}</h2>
               <br />
               <h5>Detalle: 
                   <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non laborum officiis ducimus repellat inventore.</p></h5>
@@ -64,8 +66,8 @@ const ItemDetailContainer = () => {
             <ItemCount style={{ width: "15rem", align: "center"}} stock={5} initial={1} onAdd={onAdd}/>
             <p>{seleccionado ? "Ya se selecciono algo!" : "No se eligion ninguna cantidad"}</p>
             {seleccionado ? <Link className="button" onClick={handleClick} to="/cart">Ir al Carrito</Link> : null }
-            
-        </div>
+          </div>  
+
         </div>
     );
     }
