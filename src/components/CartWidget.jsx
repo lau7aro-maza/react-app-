@@ -1,11 +1,19 @@
-import * as  React from 'react';
+import React, {useContext} from 'react';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { CartContext } from './Cart/MiProvider';
+
 
 
 export default function CartWidget(){
+    let { carrito } = useContext(CartContext);
+
+
     return (
-        <>
-            <ShoppingCartIcon fontSize="large" />
-        </>
+            <div>
+                <ShoppingCartIcon fontSize="large">
+                    ({carrito.length})
+                </ShoppingCartIcon>
+            </div>
+
     )
 }

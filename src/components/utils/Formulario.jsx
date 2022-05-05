@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { db } from "./Firebase";
-import { contexto } from "../Cart/MiProvider";
+import { CartContext } from "../Cart/MiProvider";
 import { addDoc , collection } from "firebase/firestore";
 
 const Login = () => {
-    const { setUsuario } = useContext(contexto)
+    const { setUsuario } = useContext(CartContext)
 
     const handleSubmit = e => {
         e.preventDefault()

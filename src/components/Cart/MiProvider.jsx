@@ -1,9 +1,8 @@
 import { createContext, useState } from "react";
 
-export const contexto = createContext()
-const {Provider} = contexto
+export const CartContext = createContext()
 
-const MiProvider = ({children}) => {
+export default function MiProvider({children}) {
 
     const [carrito,setCarrito] = useState([])
     const [total,setTotal] = useState(0)
@@ -59,10 +58,9 @@ const MiProvider = ({children}) => {
     }
 
     return (
-        <Provider value={valorDelProvider}>
+        <CartContext.Provider value={valorDelProvider}>
             {children}
-        </Provider>
+        </CartContext.Provider>
     )
 }
 
-export default MiProvider

@@ -9,9 +9,6 @@ import MiProvider from "./components/Cart/MiProvider";
 import Formulario from "./components/utils/Formulario"
 
 
-
-
-
 export default function App(){
 
   return (

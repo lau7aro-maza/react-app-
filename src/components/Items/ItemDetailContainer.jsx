@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import ItemCount from "./ItemCount";
 import Loading from "../utils/Loading"
-import { contexto } from "../Cart/MiProvider";
+import { CartContext } from "../Cart/MiProvider";
 import { db } from "../utils/Firebase";
 import { collection , where , query , getDocs } from "firebase/firestore"
 import "./Item.modules.css"
@@ -12,7 +12,7 @@ const ItemDetailContainer = () => {
     const [item, setItem] = useState({});
     const [loading, setLoading] = useState(true)
     const [seleccionado, setSeleccionado] = useState(false);
-    const {agregarProducto} = useContext(contexto)
+    const {agregarProducto} = useContext(CartContext)
     const {id } = useParams()
     const navigate = useNavigate()
 

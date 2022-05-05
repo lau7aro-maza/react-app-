@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import { contexto } from "./MiProvider";
+import { CartContext } from "./MiProvider";
 import { db } from "../utils/Firebase";
 import { addDoc , collection , serverTimestamp } from "firebase/firestore"
 import { Link } from "react-router-dom"
 
 const Card = () => {
 
-  const {carrito,disminuirProducto,borrarProducto,AumentarProducto,total} = useContext(contexto)
+  const {carrito,disminuirProducto,borrarProducto,AumentarProducto,total} = useContext(CartContext)
 
   const handleClick = () => {
 
